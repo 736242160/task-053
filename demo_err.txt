@@ -1,0 +1,12 @@
+def ok(a) {
+    return a;
+}
+
+def bad(x] {
+    return x;
+}
+
+var s = "abc 这行字符串没有闭合;
+
+/* 块注释一直没有结束
+def ghost() {}

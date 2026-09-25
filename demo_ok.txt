@@ -1,0 +1,27 @@
+// 行注释里的 def fake1() {} 不应被识别
+# 井号注释里的 class Fake2 {} 也不应被识别
+/* 块注释
+   def fake3() { ( ( (
+   跨越多行 */
+def outer(a, b = "def fake4() {") {
+    var s = 'it\'s got (parens) and class keyword';
+    var t = "double \"quoted\" { [ ( def fake5";
+    var u = """
+        三引号字符串
+        def fake6() { }
+        不配对的括号 ( ( (
+    """;
+    class Inner {
+        fn method(self, x) {
+            function local(y) {
+                return y * 2;
+            }
+            return local(x) + 1;
+        }
+        func helper() { return 1; }
+    }
+    return 0;
+}
+def top_level() {
+    return outer(1, 2);
+}
